@@ -344,10 +344,32 @@ divide_reduce = reduce(lambda acc, val: acc / val, divide_list)
 
 
 
-
-
 ###### Okay a small practice problem. Lets see if we can return a string in the format of Code Platon Is Asking For Help..
+
 input_string = "Code Platoon! is ? asking for ! help.. We neEd to fiX th1e senTence to Only hAv3e th3e W0OrdZ from this string"
+
+#Remove all numbers from the input string using filter
+input_string_filter = list(filter(lambda char: (char.isalpha() or char == ' ' or char == '?' or char == '!' or char == '.') and char in input_string, input_string))
+
+#join into string
+input_string_filter = ''.join(input_string_filter)
+
+#split string into seperate words
+split_string = input_string_filter.split(' ')
+
+
+#iterate through the string, bring every character after We (i = 8) to lower case, replaces wordz with words.
+for i in range(len(split_string)):
+    if i >= 9:
+        split_string[i] = split_string[i].lower()
+    if i == 18:
+        split_string[i] = 'words'
+
+#join final string together
+fixed_string = ' '.join(split_string)
+
+print(fixed_string)
+
 
 
 
